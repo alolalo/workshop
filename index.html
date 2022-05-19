@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>.: Naming Things Workshop: LOCK-OUT! :.</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="e79b6185-c948-4321-a269-72ab97a393f5" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1597392582469-a697322d5c16?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/gu.us.png"/></div><h1 class="page-title">.: Naming Things Workshop: LOCK-OUT! :.</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="aac38ffe-7d08-4a4a-99e1-31c221d35ab0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">quick link: Workshop Tickets, <strong>NOW 50% off</strong> on Pre-Sale till 24th of may! </div></figure><h3 id="bb1d9115-dec1-4fbe-9b76-0209825a7f3a" class="">Quick Information:</h3><ul id="23e3933c-d518-4c68-898c-03171384b60d" class="toggle"><li><details open=""><summary><strong>Who is this HANDS-ON workshop for?</strong></summary><p id="5247fdcb-9c65-4c5a-a4d9-b8c334e960ff" class="">Technical Copywriters, Instructional Designers, Mechanical Engineers, Software Engineers, Design Engineers, Front-end Developers, Back-end Developers, Design System Engineers, UX Designers, UI Designers and every IT professionals who wants to learn the art of naming things to better their communication and technical copywriting skills using <strong>design, code &amp; the art of naming things</strong>.</p><p id="33329842-3cda-477c-aa55-5dff96ceca24" class="">Students &amp; Teachers, I’m sorry; this workshop is for “in the field professionals” and requires a healthy dose of experience, besides a real-world case we will be working on for you during the workshop. This should not be practiced in a classroom, it’s too safe.</p><p id="fcdb79c8-92f2-44a5-82d7-8edd31a747bc" class="">Instead I would love to offer you a talk I can give about naming things at your accredited institute, because naming things can’t be “taught in a day”. Thát can be explaine in a talk.</p><p id="b3a25be2-000c-4dcf-bcf6-b6f082c20d78" class="">But teaching it in a day to newcomers is lie that tastes to sweet to be true, and it is; that you will master naming things in one day without any prior expience. It’s meant to be applied IRL, not in academia since there is no “brute force” present to break away from the safe environment.</p><p id="0907a0c0-7d4d-452b-baa8-8493b4c27d65" class="">That’s why through a <strong>gamified workshop</strong>, you will learn the humble &amp; hardcore way of naming things with the naming-game “LOCK-OUT”. All fun &amp; games with IRL hands-on results that are guaranteed, or your money back.</p></details></li></ul><ul id="1c1b8767-3e60-4031-93d9-6bb9b78c0f2d" class="toggle"><li><details open=""><summary><strong>WHY is the workshop GAMIFIED?</strong></summary><p id="ed11fe81-64f2-447a-aae8-1949b3ef00f6" class="">Applied games are the best teacher you can have: an honest game that puts YOU against yourself by consent, and gives you a goal that is clearly set. Your abilities and mechanics are set, and the fact you compete against you is a fair. I personally don’t like to coin what I do “naming things”, as I am mostly designing language patterns. And code.</p><figure id="a23cd774-6f86-413a-8a66-e218ff1a1f39"><div class="source"><a href="https://twitter.com/amcdnl/status/1499375076650717193?s=20&amp;t=n2WZW7lCfCrBp2wHpBCq0g">https://twitter.com/amcdnl/status/1499375076650717193?s=20&amp;t=n2WZW7lCfCrBp2wHpBCq0g</a></div></figure><p id="cb5f86de-3752-4109-ae3b-0cf41459242a" class="">If you want to learn naming in a safe environment that pretends to mimic a real-world environment, the flaw is already made; there are no dynamic scenarios or rules to follow, no pressure of time or completion. Games do that by default, and NEVER tell you to do so! Funny right, how we accept these things from games but not people.</p><p id="ba5509db-0ceb-4d1c-b1bc-cdd3410452d2" class="">I’m an expert in game design and have done so to an multi award-winning degree, but the highest degree of title is simply my name; <a href="http://justgu.us">justgu.us</a>. </p><p id="d4b3d009-7854-4be0-9813-631ca9f8cd56" class="">And since this is about naming, not authority-building, I would like to opt-out from the traditional authority building, and start a game; Would you like to recieve the workshop demo? Just <a href="http://askgu.us">askgu.us</a>.</p></details></li></ul><ul id="e87ceb38-ceb8-4438-9bac-c31315006bf2" class="toggle"><li><details open=""><summary><strong>WHAT will I LEARN?</strong></summary><p id="62009e5d-ded5-432d-9b98-4c19bddf183d" class="">You will learn how to create a <span style="border-bottom:0.05em solid">design pattern language</span> that you will be able to put into a programming language to create a “designed system” with using system design (CS).</p><p id="72dc6095-f791-444f-9703-be90eb10de86" class="">The result of that is that you will learn how to progam your own design system language, in any programming language effectively without code. </p><p id="ab422adb-1bf1-4c67-af41-60969778cbb8" class="">A set of core principles &amp; practices to name things effectively that you can memorize by hand, and needs no technology to export or remember what they are. Just practice them over and over until you nail naming things!</p><p id="dafcafcc-6433-4729-8aa8-36e8545be4ff" class="">In a more applied sense; you will learn how to create a design language, not a programming language, that is the layer on top of your code and copywriting. A lifetime skill that has given me the voice, identity and ownership of “mind” your read now.</p><p id="47a0a0ea-7457-41e7-a63d-e781be09ebae" class="">Yet naming things is hard, really hard, to be all by yourself and that’s exactly why ordinary teaching will fall short; you only see what you know and if you don’t know how to program your own robust language pattern, how do you know what “naming things” actually works? Or can be improved or expanded upon by other people, like how the alphabetical system works?</p><h3 id="a85ad0a6-d762-4f88-acda-877e34436490" class="">If you LOSE, I lose TOO</h3><p id="55df9ed8-a119-4f13-997c-fd96d8623ab8" class="">What you will learn NOW however, is that nobody can actually leave the workshop before they finish their “play”, so you’re committed to each other to WIN the game. And if you lose, I lose because you get your money back if you don’t want to do it again.</p><p id="28760211-f6d4-49d5-a7e0-1eb849283272" class="">It’s gamified remember? No boss, just you as your own endboss! Me too, it’s business in the end and if you take a radical approach, you get rewarded if you stay accountable.</p><p id="36215aca-8834-45d9-9eaf-e34428f7c6db" class="">My name is <a href="https://justgu.us">justgu.us</a> and I’m the tiniest Dutch Design System agency packed inside a human body! Questions about this gamified workshop so far? Just <a href="http://askgu.us">askgu.us</a>!</p></details></li></ul><ul id="c719c816-c30b-440f-9dc3-31c3fe4beb1b" class="toggle"><li><details open=""><summary><strong>WHERE is the workshop held</strong>?</summary><p id="84740919-3926-4d8a-b465-7207260fa2d9" class="">The workshop is held <strong>onsite at your company</strong> or location in the Netherlands, and takes a full day to complete (6-8hrs). International workshops can be held <a href="mailto:hoeveguus@gmail.com?subject=Naming%20THINGS%3A%20workshop%20request&amp;body=Hi%20Gu.us!%0A%0AWe&#x27;re%20interested%20in%20having%20you%20give%20your%20naming%20things%20workshop%20at%0A%7Byour%20company%7D%2C%20and%20we%20would%20like%20to%20get%20in%20touch%20with%20you.%0A%0AThe%20company%20has%20XXX%20employees%20that%20I%20would%20like%20to%20sign%20up%20for%20this%20workshop%20if%20it%20meets%20our%20goals%20and%20needs.%0A%0ACould%20you%20please%20contact%20me%20at%3A%20%7Byour%20email%7D%20or%20call%20me%20at%20%7Byour%20phone-number%7D%20on%20%7Byour%20date%2C%20time%20and%20timezone%7D%3F%0A%0AThank%20you%20in%20advance!">on your request</a> and are for a minimum of 9 people (plus travel expenses).</p><p id="b51e03bb-9f1c-4708-8cfc-de6cffd367dc" class="">In case you prefer to follow the <strong>remote version of the workshop</strong>, this will be done over the course of two days (4hrs each) on the last Thursday &amp; Friday of each month. The remote workshop is for no more than 3 people (+me) so there is more time in-person remotely, and will be given in the English or Dutch language.</p><p id="bb52ab3f-9c41-4386-bc45-6172a1aff6fa" class="">In case of disabilities or any other accessibility issues concerning your entry to participate in the workshop, a remote workshop will be offered as substitute for those who can not participate in the onsite version.</p></details></li></ul><h2 id="e685d8eb-3bde-4884-9895-a16d6454bbe4" class="">Introduction</h2><p id="ddbda1d4-4e44-4139-afd0-5bc53a723542" class="">Have you ever wondered how it could be that some people can just name a thing like it’s nothing?! And did you know naming things in computer science is one of the least educated subjects for which <strong>there is no education at all? </strong></p><p id="ef6e7fe8-0479-464c-971f-89f7022da6b8" class="">Yes, we educate people to write code, but not to name things in design and code. Funny isn’t it? Code and names use the same technology, language, yet we see both of them differently somehow in a degree that is not easily explained on the surface.</p><figure id="6e4bf1e1-624c-4b99-b192-d0430a8cd2d4"><div class="source"><a href="https://twitter.com/whitep4nth3r/status/1526660304746192897?s=20&amp;t=9580YVYhXJqskGasAsPsgw">https://twitter.com/whitep4nth3r/status/1526660304746192897?s=20&amp;t=9580YVYhXJqskGasAsPsgw</a></div></figure><p id="8e32be19-5a12-4234-84a8-f700a9c52063" class="">Hi! My name is <a href="http://justgu.us">justgu.us</a> and I created the world’s first applied game design workshop to learn the art of naming things! </p><p id="a30c7d60-6c23-4946-a3a3-e8243137e4f9" class="">Games are not just for fun, but I used games as a medium for a very good reason; games have rules to them, just like the language system does. And that means there is no “authority” present other than the players who are beating the game of “naming things”.</p><p id="e6478078-9d64-40a3-b6b7-77c367b0695d" class="">No certificate beats winning and with this gamified workshop everybody wins! And like any good game, there’s a free DEMO on request! Just <a href="http://askgu.us">askgu.us</a> and he will set you up!</p><h1 id="da9ed5e9-5737-49e2-a3f9-36d11c9d261a" class="">Why naming things can be “hard”</h1><p id="531e1670-749c-4e75-9519-c5b0e7419f7d" class="">If naming things in computer science is considered very <a href="https://hilton.org.uk/blog/why-naming-things-is-hard">hard</a>, then why does it always look soó simple? Like it’s right at the tip of your tongue...</p><p id="d5972cbd-3eda-40b2-af5f-a50898403a81" class="">Well are you naming a thing, or are you branding a thing like I did to myself;</p><p id="4f669626-5ba4-4a83-8c9d-a73444d44581" class="">My name is Guus and my brand identity is <a href="http://justgu.us">justgu.us</a> , but one is my name and the other a brand. What is the difference between my name as a name, or my name as a brand? </p><p id="f615f167-8ef9-48dc-b4cd-cc183d6cf330" class="">They “look” the same, they even “sound” the same, but they don’t share the same form &amp; function. Well if you want the answer to that question, why don’t you <a href="http://askgu.us">askgu.us</a>.</p><p id="64b3fe7b-6e52-44b3-b8a1-f4076a949ffb" class="">That’s because my name is a given, but how I brand it is <em>in context of narrative.</em> Words frame the mind indeed, they are the only thing you see in good design and code; a narrative</p><h3 id="05a44b90-e2c3-41e6-b6e8-1bb33369f626" class="">Branding Things vs Naming Things</h3><p id="c089d914-9df1-4242-94b0-40fca2a4c546" class="">Picture this for a second: If books <em>would work like games do</em> and not like words in a book;</p><p id="c341b504-acc2-4025-9eae-3f9360b34ac8" class="">In a book you can just read on if you don’t understand a word, you just skip it or come back to it later. But in a game all the words there after would disappear if you didn’t, because games have rules to them.</p><p id="8054e2a0-5689-4e17-a3cd-3644d54a36cf" class="">The book would erase itself and you could not read on, like a mini-boss in a video-game blocking your progress. You will just have to find a way to beat the boss, the word you’re looking for.</p><p id="94c89a2d-95ea-443b-a31a-3adc73541888" class="">You feel stuck and you just can’t get passed the point. You need to figure out what the word means and reread the page you were on, maybe even the entire book if it plays like a roguelike.</p><p id="009cc956-1f2b-48c0-9cf4-379e59a179a9" class="">Well that’s how it feels when you can’t find the code you’re looking. It’s a very real-life game of knowing how to advance, or beign stuck with a miniboss you can’t beat, before you even reach the end-boss; yourself.</p><h3 id="f39b7d9a-24f5-40cb-87aa-268b7219b2f3" class="">K.I.S.S. a Color</h3><p id="f6311807-48e4-4358-a46f-4ee777b1cf0f" class="">Have a look at <a href="https://unbug.github.io/codelf/#color">CODELF</a>, a tool to find real-world usage of color variable names, used in <em>professional </em>codebases. You’ll see that naming a color is something of a beast of it’ own in the professional wild:</p><figure id="3eef48bd-d4ef-4861-b881-7d1c89b9f22d" class="image"><a href="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled.png"><img style="width:1248px" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled.png"/></a><figcaption>a screenshot of CODELF’s website showing the ways people use naming colors in their code-base.</figcaption></figure><p id="0c98264e-bad1-4a16-b05c-aed7ae502c97" class="">I will let you decide if all those different names have any relative meaning to you, but what matters most to me is how they are <em>related by naming; </em>by use-case mostly, not by color.</p><p id="f04e01e1-01ab-4fb1-a364-619cc350c28c" class="">A variable in the front-end should be like a face; <strong>instantly recognizable. </strong>But their application is universal and that can make naming things a bit harder than things may look at first glance. You don’t see how it fits into a bigger narrative of the code (yet).</p><p id="e7901ac6-af27-4f88-a72c-ba0d241ba04f" class="">How do you name “a color” if what you are actually naming is it’s relevant narrative of application? And how hard can it be to name a color after the thing it actually is, like --blue?…</p><figure id="5f482738-acaf-46ce-a035-da252b1eaddc"><div class="source"><a href="https://twitter.com/csswizardry/status/1444986047121788935?s=20&amp;t=geR3uXF_mSkZb77vobBxNw">https://twitter.com/csswizardry/status/1444986047121788935?s=20&amp;t=geR3uXF_mSkZb77vobBxNw</a></div></figure><p id="baaa5197-01e3-4e3f-bf36-317af938821b" class="">Naming is quite like the latter, a game with lots of minibosses to beat humanly, and that most people <strong>quit instantly</strong> because of the lack of knowledge on the matter that it cannot be done otherwise; self-taught.</p><p id="c3cdcd0d-cdb5-4019-93ca-4a0c67ba5a62" class="">A Classical Catch22, but don’t worry; me and some friends actually made an awardwinning game called Catch22 about just that; a relaxing and frustrating game of evading yourself endlessly...</p><figure id="e9fae3af-c107-40d2-83f8-8455c1d9da4c"><div class="source"><a href="https://youtu.be/W5HNEgLdiRQ?t=9">https://youtu.be/W5HNEgLdiRQ?t=9</a></div><figcaption>Catch22 is an iOS game released in 2012, and was one of PAX10 Indie Showcase games at PAX East 2012. A game in which you evade yourself, endlessly.</figcaption></figure><div id="0f5b99e4-1ab1-4a07-8bdb-d3cd2c6cd23a" class="column-list"><div id="ef422a91-c0d5-46f9-b8bd-69535861a8dd" style="width:50%" class="column"><p id="6dd9f7d7-4376-4dbe-a9ad-b85b73ff99c4" class="">Well, once upon a time I got a very good wake-up quote by a well known Dutch pixel-artist by the name of <a href="http://pietepiet.com/">Paul Veer</a>;</p></div><div id="05c44a01-3cb4-4588-8d92-6cec217089f2" style="width:50%" class="column"><blockquote id="7364e54a-52f3-4361-9fcb-f534dd7fe3be" class="">Everything that you look at and think “that’s EASY, I can DO That!”, 
+that’s probably because you suck at it...</blockquote></div></div><p id="e3bf573d-ec37-466b-bdd0-ee0e0ad3156c" class="">That is just… so true! Just like the word pixel-art makes you think “it’s just pixels”, so does naming things looks so easy to do, that we forget how hard we suck at it most of the time. </p><p id="fa339e1d-4994-44b6-a12f-07fbea8e1a5a" class="">It’s like an endless game you keep playing with yourself; HOW would you name “this”?</p><h1 id="07dc7521-45cc-40db-9ba3-05f32e26382d" class="">Why naming things can be “easy”</h1><p id="c30c51f5-420e-4d8b-b340-b7eaadb6b1bb" class="">I take naming to the next level and dogfeed my principles (apply to self) from first principles. Which is why I feel confident doing this workshop that nobody would even dare to do; a game on the subject of naming things! And there’s good reason why I can make a game of it;</p><p id="51ba4630-03fb-4a66-86a0-4a8f2a62727f" class="">I’m an award-winning and vetted game designer &amp; design founder with over 14 years of creating digital experiences, for small (indie) startups, design agencies and AAA game studios like Guerilla Games (Killzone 4, Horizon Zero Dawn). </p><p id="6ba9ba20-3da0-4264-ba1a-db88589e4337" class="">I can’t seem to stop thinking in design systems these days, and as a result have created my own semantical naming convention .: B.O.U.~M :., accompanied by my own license agreement that uses BOUM-tokens to protect your IP, and my own ds-methodology called Revolver-DS; just lock, load &amp; ship your next DS!</p><p id="d44269e6-d53e-488d-b98b-a74985fc8104" class="">
+</p><p id="a77d4d47-be31-4df0-bb43-9a5c37450ab7" class="">Combine that with some game design superpowers and UX-copywriting skills, and you’ve got the cocktail of crazy skills that you need to give you a gamified workshop; <a href="http://justgu.us">justgu.us</a>. </p><p id="ac3e27d2-01ed-4e74-ab9b-255226c073a6" class="">There is no prize without progress, and no certificate beats winning. A game is fair to all players and doesn’t judge you upfront, only when the game is over by you winning or losing.</p><p id="c0a74d22-d013-461c-bad7-a627d9db6c5b" class="">Games are ethical, logical and fair to all that enter to play. And I can’t think of a better way to get rid of all that authority-fallacy from the start, both ways! </p><p id="c6acbe1d-1927-44cf-9a91-771f309a4d48" class="">As above, as below. <strong>Game on!</strong></p><h1 id="1408a33d-0029-4faa-b69e-119688cc3cdf" class="">The Workshop Game: LockOUT </h1><figure id="9b7b9fcc-3438-483d-a222-49fd07d0955b" class="image"><a href="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled%201.png"><img style="width:1280px" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled%201.png"/></a><figcaption>An image of the Kickstarter Game DustBiters, a card-game made by a fellow dutch indie dev Jan-Willem Nijman and friends.</figcaption></figure><p id="73dfcf39-1085-4495-a608-fdc8477636a7" class="">The future of Web3.0 turned out to be a warzone... Between Hello Kitty GIF’s and Generative art. Yet the company you work for has invested a lot in both.</p><p id="930cf977-4487-4b94-a8f2-8e378c3913bb" class="">Everything went on the block-chain, including your company’s design system DAO, but it turned out to just be one massive entanglement of API’s.</p><p id="fb2d4e0a-29c8-409f-91f3-597178887ef8" class="">And like everything else in this world, it can also break…</p><p id="cdf7d0d3-1274-4c6c-91a5-5d7387f187e2" class="">No docs, No internet, No Google, nothing... Everything you normally have access to is offline.</p><p id="95fef6bf-8a5d-4e1b-8c56-ef422641b050" class="">All the internet just stopped one day after the kitty-lockdown was implemented in the Netherlands due to too much Hello Kitty-pictures being used as NFT’s, and the <a href="http://Corporation.inc">Corporation.inc</a> that owns Hello Kitty has their own law about that now thanks to some politician who invested in crypto.</p><h3 id="314d498b-f34f-4045-ba37-468963752f3c" class="">The Great Collapse</h3><p id="1c457f6f-4f59-4274-a2a6-5b2011e48205" class="">Can you imagine the future?... When the internet just stops like how you saw people in Southpark gather to “find the internet”. That episode became a reality on may 1st, 2027 when Hello Kitty went VR and purchased the first “world” in Elon Musk’s vision of meta humanity.</p><figure id="d51b7c42-5c3c-4eaa-8e65-284c3a33bc28" class="image"><a href="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled%202.png"><img style="width:550px" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled%202.png"/></a><figcaption>A still from the SouthPark episode where the entire world has no internet</figcaption></figure><p id="0370f270-97cb-4810-bfd1-cb4bb63c779a" class="">Luckily the general public responded quite well to it since they called it “The Great Collapse” and stopped supporting web3 as a majority, but technically speaking it was the first collapse of the general public internet. </p><p id="b961313e-93e7-4b02-8411-82ec9d5b741c" class="">The manucipalities keep saying they have created this law to stop citizens of web2 from being abused for mining crypto-currency, and to protect cloudstorage centers from duplicating false NFT’s, which happened after their merge with MetaMask &amp; Eherium and caused the 2nd collapse.</p><p id="ee125a05-239d-4607-9424-1ce2acc54bdc" class="">However... Web2.5 was born out of this relationship, a legacy system that supports the new layer web3 of logic that can’t survive on it’s own. Yet we can’t go back anymore, or web2 will die.</p><p id="a3b2e769-0645-41c1-b560-b1e284195700" class="">A kind of modern, digital slavery that makes us all dependant on crypto-currency and Hello Kitty.</p><p id="d2fd8901-e664-4969-a6e4-d9fbd9ef396a" class="">To achieve a lock-down that they use the most blunt force possible to apply to mankind to date; <strong>stop the public internet </strong>alltogether and reboot the entire privatized block-chain internet with it to have all systems reset to serve the block-chain.</p><h3 id="dfcea074-22d2-4af4-8ad3-830e056bfb93" class="">Aáaaand... it’s GONE!</h3><p id="4e8bdf1d-31fc-468b-bf81-bbacff1687b5" class="">And then it happens… Yes, the impossible thing happened; the kitty-wars erupted again, and the internet once more needs to come to a full halt. </p><p id="59054e02-b71f-4586-afd8-4a67fd33c2af" class="">People are going mad in the office and around you...</p><p id="f91f0463-2b87-4f8f-9be6-5371032570fc" class="">NO INTERNET! 
+NO Node.js! 
+No CSS!
+No CDN! 
+No DS! 
+No StackOverflow! 
+No Google! 
+NO DOCS!!! </p><figure id="c2bf5e88-deed-4181-935c-6b8a03e43832" class="image"><a href="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled%203.png"><img style="width:1200px" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/Untitled%203.png"/></a><figcaption>a cartoon by <a href="http://suindependent.com">suindependent.com</a> that shows how fast we can get thrown back into the stone-ages regarding our communication.</figcaption></figure><p id="fb7ef389-cbd6-44fc-8ba9-db7f4ba5de58" class="">Every project you had access to is now locked out, and you need to start all over from scratch! Like a couple in the stone ages, they would need to craft their own tools and language system!</p><p id="9369e944-2bbb-4b7c-ad18-a6be43fe9f05" class="">How am I going to know what to do that, create our OWN LANGUAGE, without docs?! This feels like a warzone, and you can’t have ZOOM-calls with anyone to ask any questions! Not even an email.</p><p id="be5ce888-dbc3-4753-ad71-b2a2f6bab4ff" class="">No online meetings too, that’s about the only positive that happened. But that’s really something, to be literally cut off from the web that you rely on to get the simplest thing done; <strong>communicate with bare minimums.</strong></p><p id="59440257-fd36-4c2a-b54d-70cb83974564" class="">Having learned from the previous lock-down, companies have a way of making sure their DOA survives; pen &amp; paper copies! They expect the DS to be presented in pen &amp; paper!</p><p id="b3d9785e-76c2-4437-934d-9c5056a36c81" class="">But how can I remember everything in the design system without an overview? And even worse; how is everything named? Do you remember that by heart?</p><h2 id="9e49937e-101f-462e-881d-b5519faf3900" class="">PLAYER 1: The DS hero journey</h2><p id="427ca526-3493-4a07-88fe-baec6d72ca68" class="">But then... The worst thing that can happen, happens... You’re not only expected to invent the wheel again, you must make it spin too.</p><p id="68de83af-81f0-4843-a318-778a83cdc501" class="">Your client calls in panic over the good old trusty landline that still works. You know, one of those red phone with a wire and a horn you pick up. Makes you feel really “important”.</p><p id="c4cdc48d-69b9-4028-b253-bfd1afbd0f96" class="">Spiked and tense by all the happenings in meta-space, fearing the company’s “source of truth” is under attack, they are making demands to see their golden goose; the Design System, on pen &amp; paper like you promised them when you signed.</p><figure id="2b187120-4110-4d1e-b56a-ee57007dfa48" class="image"><a href="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/800px-Barack_Obama_sitting_at_the_Resolute_desk_2009-650-thumb-650x410-125555.jpg"><img style="width:650px" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/800px-Barack_Obama_sitting_at_the_Resolute_desk_2009-650-thumb-650x410-125555.jpg"/></a></figure><p id="40abb164-4141-4a92-9c59-9af357bec3d0" class="">There is no calming the poor the president when you give him your reasons for not being able to deliver some of the request, who is in another country zipping scropinos at the beach by the sound of it, but due to their position of authority fiercelessly put down their demand;</p><p id="cc63fcd8-80e9-4b1f-b2ae-67a5291a2a21" class="">CLIENT: “We want to <em>SEE</em> our entire design system foundation is working and doing ok during this lock-down, TODAY! “</p><p id="3b355e02-fc55-4851-bbca-30ae0ab493f3" class="">YOU: “Over the phone??!.... Everything is down and out so I can’t send you anything“</p><p id="f4f53928-53a4-44b5-a4d0-3c42992bf3b4" class="">CLIENT: “Ofcourse over the phone! What Else is working!? A cat-bell?! A fax maybe, just show me! OK?!”</p><p id="3a775224-5fe1-483c-9d7f-1b56d85e4bb8" class="">YOU: “...ok, I’ll have it ready for you at the end of the day...”</p><p id="f1b08f7c-5127-45a1-8d26-afd2f9d312a8" class="">CLIENT: “Good! very good! Glad to hear you can do it! But remember; I’m not tech-savy and I need to present what you send to the “grey &amp; old” you know? With pen &amp; paper, that kind of old.”</p><p id="c3f8edd0-4eca-4fb6-bb7c-7d38af7f4674" class="">YOU: “No worries, we have your back!”</p><p id="35792c7c-2098-4fe9-b19d-313204edad3e" class="">... And so, the rogue-like game begins; you have no connection to any of your online manuals or documentation, nor your projects, and still you need to produce a design system that can be communicated by phone-line to a not so tech-savy person with very high demands. </p><p id="348fc68c-60bb-4c11-a348-48a9476dba0f" class="">Sounds very i.r.l. to me, especially if you’re just starting out creating your first design system anyway. There is no manual for it, nor best practices if you’re cut off from the internet.</p><h3 id="53401a3f-4ac3-4e67-a72f-2e978e6c6582" class="">MiniBoss 1: Tokens is Money, Time isn’t</h3><p id="c7cf77d0-751f-4b03-b90e-0c03b2e72159" class="">The LockOUT game has it’s own economy since <strong>every class, token &amp; utility</strong> has a price and rules applied to them, and there is only a finite amount of money you can use to buy and create design tokens and documentation. So use every token wisely &amp; <strong>recursively!</strong></p><figure id="2476eeb9-cf1b-461a-9f54-1c06fe369316" class="image"><a href="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/IMG_0222.jpg"><img style="width:4032px" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/IMG_0222.jpg"/></a></figure><p id="e2d81093-7e24-44eb-9fa6-7e6e55c450fd" class="">That’s why I created the game LockOUT in which we take naming things very, very serious for one full day by having <strong>no technology</strong> to support us through a fun and furocious day of design system DO-dillegence; code copywriting.</p><h3 id="9015d354-a11d-41f9-ba77-3f65e0e63ab3" class="">MiniBoss 2: You are not your Title anymore</h3><p id="cf63566c-5e0f-4fc6-8f72-1d8b09aa0de8" class="">You are not your title anymore, nor the tech-stack that you preach and say prayers to. And no other people to help you out with the thing that looks soooó easy to do at first glance.</p><p id="002b43c4-4044-4ea4-bdad-1082f952998c" class="">Humble &amp; Hardcore, untill we meet the end-boss; YOU! Not your fancy title your company gave you, no you and all other people are just players in an equal game!</p><figure id="7c096dfc-8cc0-4ba7-958a-1d484515047c" class="image"><a href="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/cards.jpg"><img style="width:4032px" src="Naming%20Things%20Workshop%20LOCK-OUT!%203eef48bdd4ef4861b8817d1c89b9f22d/cards.jpg"/></a><figcaption>A colorfull tarrot-card set shwoing the son-, daughter-, mother-, father- and ace of cups. An ordering system inside the card-system that has been known to mankind for many millennia. Not scary at all, very logical.</figcaption></figure><p id="1a4808df-1a59-4d54-9c4b-0f5c4d079f60" class="">Your roles is simple; play the game</p><p id="8810501c-12e0-4de4-a05f-6bd288c609fd" class="">That sounds trivial almost, but so too does the idea of removing the ability to speak up about working conditions, especially learning conditions aimed at professional application. No leadership is in this case the best leadership, where hardship substitutes the teacher.</p><h1 id="70a750c0-f960-4c8a-84fd-c92f70e6b9a5" class="">Signing Off</h1><p id="5bced13d-4828-4685-9200-834d9c637d03" class="">I hope to have convinced you about the importance of good naming. I’m an avid fan of design, art &amp; code and to me they come together in the art of naming things in computer science.</p><p id="c1278096-44fe-45f3-b57a-16039643565d" class="">You can get a very nice 50% discount for three people untill may 21st, which is my birth-day! I want to have sold at least one full workshop (9 people) by that time, and I hope you will be one of them!</p><p id="beec2727-6c3d-48eb-99dc-3f09e25fff22" class="">Order your tickets here, and if you have any questions still; just <a href="http://askgu.us">askgu.us</a> and book a DEMO!</p><p id="1851bd25-4571-4ce3-9f51-283d1be24cd2" class="">
+</p></div></article></body></html>
